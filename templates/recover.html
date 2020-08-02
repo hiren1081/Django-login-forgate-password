@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover password</title>
+</head>
+<body>
+    <div>
+        <h1>PLEASE CREATE YOUR NEW PASSWORD</h1>
+        <form action={% url 'recover' %} method="POST">
+            {% csrf_token %}
+            PASSWORD : <input type="password" name="pass1"><br><br>
+            CONFORM PASSWORD : <input type="password" name="pass2"><br><br>
+            <input type="submit" value="change password">
+        </form>
+    </div>
+</body>
+</html>
