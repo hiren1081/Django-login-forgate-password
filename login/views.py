@@ -46,12 +46,12 @@ def logout_user(request):
     logout(request)
     return redirect('/login/')
 
-@login_required(login_url = '/login/')
+
 def forgate(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-        subject, from_email, to = 'hello', 'hirenlakhani2017@gmailcom', email
-        text_content = 'This is an important message.'
+        subject, from_email, to = 'Click Link And Reset Password', settings.EMAIL_HOST_USER, email
+        text_content = 'Click the Link'
         html_content = '<a href = "http://127.0.0.1:8000/recover">Click Hear for reser your password</a> '
         msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
         msg.attach_alternative(html_content, "text/html")
